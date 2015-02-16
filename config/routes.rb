@@ -1,6 +1,10 @@
 Rails.application.routes.draw do
 
-  resources :trackers
+  get 'datapoints/new'
+
+  resources :trackers do
+    resources :datapoints
+  end
   devise_for :users
   root to: 'home#index'
 

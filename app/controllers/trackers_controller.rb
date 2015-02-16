@@ -2,6 +2,9 @@ class TrackersController < ApplicationController
   before_action :authenticate_user!
   before_filter :get_tracker, only: [:update, :destroy]
 
+  respond_to :html, :json
+
+
   def index
     @trackers = current_user.trackers
   end
@@ -11,21 +14,23 @@ class TrackersController < ApplicationController
   end
 
   def create
-    current_user.trackers.create! tracker_params
+    @tracker = current_user.trackers.create tracker_params
+    respond_with @tracker
   end
 
   def update
     @tracker.update_attributes(tracker_params)
+    respond_with @tracker
   end
 
   def destroy
-    @tracker.destroy!
+    @tracker.destroy
   end
 
   private
 
   def tracker_params
-    params.expect(:tracker).permit(:name)
+    params.require(:tracker).permit(:name)
   end
 
   def get_tracker
