@@ -40,7 +40,7 @@ module Reportonme
         :domain         => 'gmail.com',
         :authentication => :plain,
         :user_name      => ENV['EMAIL_USER'],
-        :password       => [ENV['EMAIL_PASSWORD']
+        :password       => ENV['EMAIL_PASSWORD']
       }
 
   end
