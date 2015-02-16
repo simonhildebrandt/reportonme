@@ -8,9 +8,12 @@
 </head>
 <body>
 
-<div>
-  <%= link_to('logout', destroy_user_session_path, method: :delete) if user_signed_in? %>
-</div>
+<% if user_signed_in? %>
+  <div>
+    <%= link_to 'logout', destroy_user_session_path, method: :delete %>
+    <%= link_to 'edit', edit_user_registration_path %>
+  </div>
+<% end %>
 
 <p class="notice"><%= notice %></p>
 <p class="alert"><%= alert %></p>
