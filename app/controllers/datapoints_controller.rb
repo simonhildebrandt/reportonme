@@ -3,6 +3,7 @@ class DatapointsController < ApplicationController
 
   def create
     @tracker.datapoints.create!(datapoint_params)
+    redirect_to trackers_path
   end
 
   private

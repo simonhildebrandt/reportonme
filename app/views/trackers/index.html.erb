@@ -1,10 +1,11 @@
 <% @trackers.each do |tracker| %>
   <p>
-    <% datapoint = tracker.datapoints.new %>
+    <% datapoint = Datapoint.new %>
     <%= form_for datapoint, url: tracker_datapoints_path(tracker), method: :post do |datapoint_form| %>
       <%= datapoint_form.hidden_field :value, value: 1 %>
       <%= datapoint_form.submit tracker.name %>
     <% end %>
+    <%= tracker.total %>
     <%= link_to 'Delete', tracker_path(tracker), method: :delete, data: { confirm: 'Are you sure?' } %>
   </p>
 <% end %>

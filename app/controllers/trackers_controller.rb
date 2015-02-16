@@ -15,16 +15,20 @@ class TrackersController < ApplicationController
 
   def create
     @tracker = current_user.trackers.create tracker_params
-    respond_with @tracker
+    #respond_with @tracker
+    redirect_to trackers_path
   end
 
   def update
     @tracker.update_attributes(tracker_params)
-    respond_with @tracker
+    #respond_with @tracker
+    redirect_to trackers_path
   end
 
   def destroy
     @tracker.destroy
+    #respond_with @tracker
+    redirect_to trackers_path
   end
 
   private
