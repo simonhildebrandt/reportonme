@@ -11,6 +11,5 @@
 <% end %>
 
 <%= form_for Tracker.new do |tracker_form| %>
-  <%= tracker_form.text_field :name %>
-  <%= tracker_form.submit 'save' %>
+  <%= tracker_form.text_field :name, placeholder: "Name something you want to track..." %>
 <% end %>
