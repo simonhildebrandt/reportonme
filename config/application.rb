@@ -32,16 +32,18 @@ module Reportonme
 
     # Do not swallow errors in after_commit/after_rollback callbacks.
     config.active_record.raise_in_transactional_callbacks = true
-
-    ActionMailer::Base.smtp_settings = {
-        :enable_starttls_auto => true,
-        :address        => 'smtp.gmail.com',
-        :port           => 587,
-        :domain         => 'gmail.com',
-        :authentication => :plain,
-        :user_name      => ENV['EMAIL_USER'],
-        :password       => ENV['EMAIL_PASSWORD']
+    
+    config.to_prepare do
+      ActionMailer::Base.smtp_settings = {
+        address:   'smtp.mandrillapp.com',
+        port:      25,
+        user_name: 'simonhildebrandt@gmail.com',
+        password:  ENV['MANDRILL_PASSWORD'],
+        enable_starttls_auto: true,
+        authentication: 'login',
+        domain: 'reportonme.herokuapp.com'
       }
+    end
 
   end
 end
