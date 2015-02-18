@@ -1,9 +1,9 @@
 class DatapointsController < ApplicationController
   before_filter :get_tracker
+  respond_to :json
 
   def create
-    @tracker.datapoints.create!(datapoint_params)
-    redirect_to trackers_path
+    respond_with @tracker.datapoints.create!(datapoint_params), location: ''
   end
 
   private

@@ -7,4 +7,8 @@ class Tracker < ActiveRecord::Base
   def total
     datapoints.collect(&:value).sum
   end
+
+  def as_json options={}
+    super(options.merge(methods: :total))
+  end
 end
