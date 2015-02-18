@@ -58,6 +58,7 @@ TrackerSuite = React.createClass
       success: (result) =>
         @sync()
 
+
 Tracker = React.createClass
 
   displayName: 'Tracker'
@@ -80,12 +81,13 @@ Tracker = React.createClass
     @props.trackerDeleteClicked @props.tracker
 
   render: ->
-    div {},
+    div {className: 'tracker'},
       button {onClick: @onButtonClick, disabled: @state.disabled}, @props.tracker.name
-      em {}, @props.tracker.total
+      em {className: 'total'}, @props.tracker.total
       a {onClick: @onDeleteClick}, 'x'
 
 Tracker = React.createFactory(Tracker);
+
 
 CreateTracker = React.createClass
 
