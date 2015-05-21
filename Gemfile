@@ -13,6 +13,7 @@ gem 'jquery-rails'
 
 source 'https://rails-assets.org' do
   gem 'rails-assets-react'
+  gem 'rails-assets-jasmine-fixture'
 end
 
 # gem 'unicorn'

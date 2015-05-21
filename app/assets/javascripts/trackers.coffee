@@ -108,5 +108,9 @@ CreateTracker = React.createClass
 CreateTracker = React.createFactory(CreateTracker);
 
 
+window.trackerSuite = TrackerSuite
+
 window.attachTrackerSuite = (element) ->
-  React.render React.createElement(TrackerSuite), element.get(0)
+  suite = React.createElement(TrackerSuite)
+  React.render suite, element.get(0)
+  suite
