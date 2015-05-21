@@ -70,6 +70,12 @@ GEM
     hashie (3.4.0)
     hike (1.2.3)
     i18n (0.7.0)
+    jasmine-core (2.3.4)
+    jasmine-rails (0.10.8)
+      jasmine-core (>= 1.3, < 3.0)
+      phantomjs (>= 1.9)
+      railties (>= 3.2.0)
+      sprockets-rails
     jquery-rails (4.0.3)
       rails-dom-testing (~> 1.0)
       railties (>= 4.2.0)
@@ -90,6 +96,7 @@ GEM
       rack (~> 1.0)
     orm_adapter (0.5.0)
     pg (0.18.1)
+    phantomjs (1.9.8.0)
     rack (1.6.0)
     rack-test (0.6.3)
       rack (>= 1.0)
@@ -138,6 +145,7 @@ GEM
       actionpack (>= 3.0)
       activesupport (>= 3.0)
       sprockets (>= 2.8, < 4.0)
+    sqlite3 (1.3.10)
     thor (0.19.1)
     thread_safe (0.3.4)
     tilt (1.4.1)
@@ -162,11 +170,13 @@ DEPENDENCIES
   byebug
   coffee-rails (~> 4.1.0)
   devise
+  jasmine-rails
   jquery-rails
   omniauth
   pg
   rails (= 4.2.0)
   rails-assets-react!
   sass-rails (~> 5.0)
+  sqlite3
   uglifier (>= 1.3.0)
   web-console (~> 2.0)
