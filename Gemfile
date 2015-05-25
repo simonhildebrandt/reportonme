@@ -11,8 +11,9 @@ gem 'coffee-rails', '~> 4.1.0'
 # gem 'therubyracer', platforms: :ruby
 gem 'jquery-rails'
 
+gem "browserify-rails", "~> 0.7"
+
 source 'https://rails-assets.org' do
-  gem 'rails-assets-react'
   gem 'rails-assets-jasmine-fixture'
 end
 

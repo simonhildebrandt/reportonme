@@ -1,3 +1,5 @@
+React = require('react');
+
 div = React.createFactory 'div'
 em = React.createFactory 'em'
 a = React.createFactory 'a'
@@ -12,15 +14,19 @@ TrackerSuite = React.createClass
   getInitialState: ->
     trackers: []
 
-  componentWillMount: ->
+  componentDidMount: ->
     @sync()
 
-  sync: ->
-    request = $.ajax
+  collect: (callback) ->
+    $.ajax
       url: '/trackers.json',
       method: 'get'
       success: (result) =>
-        @setState trackers: result
+        callback(result)
+
+  sync: ->
+    @collect (result) =>
+      @setState trackers: result
 
   render: ->
     div {},
@@ -34,7 +40,7 @@ TrackerSuite = React.createClass
         createTracker: @createTracker
 
   createTracker: (name, callback) ->
-    request = $.ajax
+    $.ajax
       url: '/trackers.json',
       method: 'post'
       data: {'tracker[name]': name}
@@ -43,7 +49,7 @@ TrackerSuite = React.createClass
         callback()
 
   trackerUpdateClicked: (tracker, callback) ->
-    request = $.ajax
+    $.ajax
       url: '/trackers/' + tracker.id + '/datapoints.json',
       method: 'post'
       data: {'datapoint[value]': 1}

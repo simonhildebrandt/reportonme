@@ -32,7 +32,7 @@ module Reportonme
 
     # Do not swallow errors in after_commit/after_rollback callbacks.
     config.active_record.raise_in_transactional_callbacks = true
-    
+
     config.to_prepare do
       ActionMailer::Base.smtp_settings = {
         address:   'smtp.mandrillapp.com',
@@ -44,6 +44,9 @@ module Reportonme
         domain: 'reportonme.herokuapp.com'
       }
     end
+
+    config.browserify_rails.paths << /spec\/javascripts\/.*/
+    #config.browserify_rails.commandline_options = "-t coffeeify --extension=\".js.coffee\""
 
   end
 end
